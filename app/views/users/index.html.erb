@@ -1,0 +1,16 @@
+<h1>Users</h1>
+
+<%= content_tag :table, role: :datatable, data: { url: users_path(format: :json)} do %>
+  <thead>
+    <tr>
+      <th scope="col">first name</th>
+      <th scope="col">second name</th>
+      <th scope="col">address</th>
+      <th scope="col">birthday</th>
+      <th scope="col">id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  </tbody>
+<%end%>
