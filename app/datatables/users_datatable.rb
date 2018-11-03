@@ -21,7 +21,7 @@ end  # => end private
   end
 
   def total_entries
-    users.total_count
+    users.count
   end
 
   def users
@@ -31,13 +31,11 @@ end  # => end private
   def fetch_users
     users = User.order("#{sort_column} #{sort_direction}")
     users = users.page(page).per(per_page)
+    user_input = params[:search][:value] 
 
-    user_input = "#{params[:search][:value]}"
-
-    users = users.where(first_name: user_input ) if (users.where(first_name: user_input).count).nonzero?
-    users = users.where(second_name: user_input ) if (users.where(second_name: user_input).count).nonzero?
-    users = users.where(address: user_input ) if (users.where(address: user_input).count).nonzero?
-
+    if user_input.present?
+      users = User.full_text_search(user_input)
+    end
 
     users
   end
