@@ -22,7 +22,12 @@ users_list = [
 ]
 
 users_list.each do |first_name, second_name, address, birthday|
-	user = User.create( first_name: first_name, second_name: second_name, address: address, birthday: birthday )
+	user = User.create( 
+											first_name: first_name,
+											second_name: second_name,
+											address: address,
+											birthday: birthday
+										)
 	user._keywords
 end
 
