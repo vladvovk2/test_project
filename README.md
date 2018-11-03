@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+What you need to do:
 
-Things you may want to cover:
+* bundle install
 
-* Ruby version
+* go to http://localhost:3000/
 
-* System dependencies
+* Check functional
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
