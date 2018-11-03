@@ -1,7 +1,7 @@
 class UsersDatatable < ApplicationDatatable
   delegate :edit_user_path, to: :@view
 
-  private
+private
 
   def data
     users.map do |user|
@@ -10,12 +10,11 @@ class UsersDatatable < ApplicationDatatable
         column << user.second_name
         column << user.address
         column << user.birthday.strftime("%B %e, %Y")
-        column << user.id
-      end
+        column << user.id.to_s
     end
-
-
   end
+
+end  # => end private
 
   def count
     User.count
@@ -30,19 +29,21 @@ class UsersDatatable < ApplicationDatatable
   end
 
   def fetch_users
-    search_string = []
-    columns.each do |term|
-      search_string << "#{term} like :search"
-    end
-
     users = User.order("#{sort_column} #{sort_direction}")
     users = users.page(page).per(per_page)
-    users = users.where(search_string.join(' or '), search: "%#{params[:search][:value]}%")
-    
+
+    user_input = "#{params[:search][:value]}"
+
+    users = users.where(first_name: user_input ) if (users.where(first_name: user_input).count).nonzero?
+    users = users.where(second_name: user_input ) if (users.where(second_name: user_input).count).nonzero?
+    users = users.where(address: user_input ) if (users.where(address: user_input).count).nonzero?
+
+
+    users
   end
 
   def columns
-    %w(first_name last_name address birthday id)
+    %w(first_name second_name address birthday id)
   end
 end
 

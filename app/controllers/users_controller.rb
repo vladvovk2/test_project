@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def index
-  	@users = User.all
     respond_to do |format|
       format.html
       format.json { render json: UsersDatatable.new(view_context) }
@@ -26,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:first_name, :second_name, :address, :birthday, :id)
   end
