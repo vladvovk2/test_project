@@ -9,7 +9,7 @@ private
         column << user.first_name
         column << user.second_name
         column << user.address
-        column << user.birthday.strftime("%B %e, %Y")
+        column << user.birthday.strftime("%e %B %Y")
         column << user.id.to_s
     end
   end
