@@ -37,7 +37,7 @@ class UsersDatatable < ApplicationDatatable
 
     users = User.order("#{sort_column} #{sort_direction}")
     users = users.page(page).per(per_page)
-    #users = users.where(search_string.join(' or '), search: "%#{params[:search][:value]}%")
+    users = users.where(search_string.join(' or '), search: "%#{params[:search][:value]}%")
     
   end
 
