@@ -3,7 +3,6 @@ class User
   include Mongoid::Attributes::Dynamic
   include Mongoid::Search
 
-  field :id,          type: String
   field :first_name,  type: String
   field :second_name, type: String
   field :address,     type: String

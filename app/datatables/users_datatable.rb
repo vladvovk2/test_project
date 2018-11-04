@@ -9,7 +9,7 @@ class UsersDatatable < ApplicationDatatable
         column << user.first_name
         column << user.second_name
         column << user.address
-        column << user.birthday.strftime('%e%B%Y')
+        column << user.birthday.strftime('%e %B %Y')
         column << user.id.to_s
       end
     end
@@ -28,7 +28,7 @@ class UsersDatatable < ApplicationDatatable
   end
 
   def fetch_users
-    user_input = params[:search][:value].to_s
+    user_input = params[:search][:value]
 
     users = User.order("#{sort_column} #{sort_direction}")
     users = users.page(page).per(per_page) 
@@ -36,6 +36,7 @@ class UsersDatatable < ApplicationDatatable
     users = users.any_of( { :first_name => /#{user_input}/i },
                           { :second_name => /#{user_input}/i },
                           { :address => /#{user_input}/i },
+                          { :id => user_input } # search work only by full input :id :( sorry.
                            ) if user_input.present?
 
 
