@@ -36,7 +36,7 @@ class UsersDatatable < ApplicationDatatable
     users = users.any_of( { :first_name => /#{user_input}/i },
                           { :second_name => /#{user_input}/i },
                           { :address => /#{user_input}/i },
-                          { :id => user_input } # search work only by full input :id :( sorry.
+                          { :id => user_input } # search by_id work only after full input :id :( sorry.
                            ) if user_input.present?
 
 
