@@ -8,7 +8,7 @@ class User
   field :second_name, type: String
   field :address,     type: String
   field :birthday,    type: Date
-  search_in :first_name, :second_name, :address, :birthday, :id
+  #search_in :first_name, :second_name, :address, :birthday, :id
 
   validates_presence_of :first_name, :second_name, :address, :birthday
 end

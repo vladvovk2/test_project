@@ -28,5 +28,5 @@ users_list.each do |first_name, second_name, address, birthday|
 											address: address,
 											birthday: birthday
 										)
-	user._keywords
+	#user._keywords
 end
