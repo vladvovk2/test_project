@@ -30,4 +30,3 @@ users_list.each do |first_name, second_name, address, birthday|
 										)
 	user._keywords
 end
-

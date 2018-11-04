@@ -20,7 +20,7 @@ gem 'ajax-datatables-rails'
 gem "rails-assets-jquery", source: "https://rails-assets.org"
 gem "rails-assets-datatables", source: "https://rails-assets.org"
 gem 'bson_ext'
-
+gem 'rubocop'
 group :development, :test do
 	gem 'rspec-rails', '~> 3.8'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
