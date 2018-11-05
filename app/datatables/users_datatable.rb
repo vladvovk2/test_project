@@ -32,14 +32,11 @@ class UsersDatatable < ApplicationDatatable
 
     users = User.order("#{sort_column} #{sort_direction}")
     users = users.page(page).per(per_page) 
-
-    users = users.any_of( { :first_name => /#{user_input}/i },
-                          { :second_name => /#{user_input}/i },
-                          { :address => /#{user_input}/i },
-                          { :id => user_input } # search work only by full input :id :( sorry.
-                           ) if user_input.present?
-
-
+    users = users.any_of({ first_name: /#{user_input}/i },
+                         { second_name: /#{user_input}/i },
+                         { address: /#{user_input}/i },
+                         { id: user_input }
+                         ) if user_input.present?
     users
   end
 

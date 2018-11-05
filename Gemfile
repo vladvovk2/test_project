@@ -16,13 +16,15 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'mongoid', '~> 7.0'
 gem 'mongoid_search'
 gem 'kaminari-mongoid'
+gem 'bson_ext'
+
 gem 'ajax-datatables-rails'
 gem "rails-assets-jquery", source: "https://rails-assets.org"
 gem "rails-assets-datatables", source: "https://rails-assets.org"
-gem 'bson_ext'
+
 gem 'rubocop'
+
 group :development, :test do
-	gem 'rspec-rails', '~> 3.8'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
