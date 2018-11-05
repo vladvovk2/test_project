@@ -9,5 +9,4 @@ class User
   field :birthday,    type: Date
 
   validates_presence_of :first_name, :second_name, :address, :birthday
-
 end
